@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="user">
+            <h2><span>User</span> {{user.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Firstname</span></dt>
+                <dd>
+                    <span>{{user.firstname}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{user.name}}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{user.title}}</span>
+                </dd>
+                <dt><span>Birthdate</span></dt>
+                <dd>
+                    <span>{{user.birthdate}}</span>
+                </dd>
+                <dt><span>City</span></dt>
+                <dd>
+                    <div *ngIf="user.cityId">
+                        <a [routerLink]="['/city', user.cityId, 'view']">{{user.cityName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user', user.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.epitech.pgt2019",
+      "microservicePath": "../userAppMongoDB"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "gateway",
+    "baseName": "epikedin",
+    "packageName": "com.epitech.pgt2019",
+    "packageFolder": "com/epitech/pgt2019",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTA1ZDc3OTFhM2Q2MTNjYzRmMzQyYzIyNDA1MzI1Zjk1ODhlYTcxMjE4YzFmOWU3ZmQ1NDRkODgzODk5ZDBkZGIwZTcxZDE2MWRmYjM5MDQ3NzEwMjc2ZDE2ZjE4NGUzYjg4Y2MzZGZmZDQ3NjIzMWRjYzc1ZDE1YTBjMmM0ZDM=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
