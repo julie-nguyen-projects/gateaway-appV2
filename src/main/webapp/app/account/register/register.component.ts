@@ -5,6 +5,8 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared';
 import { LoginModalService } from 'app/core';
 import { Register } from './register.service';
+import {UserService} from 'app/entities/userAppMongoDB/user';
+import {User} from 'app/shared/model/userAppMongoDB/user.model';
 
 @Component({
     selector: 'jhi-register',
@@ -23,6 +25,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     constructor(
         private loginModalService: LoginModalService,
         private registerService: Register,
+        private userService: UserService,
         private elementRef: ElementRef,
         private renderer: Renderer
     ) {}
@@ -46,8 +49,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.errorEmailExists = null;
             this.registerAccount.langKey = 'en';
             this.registerService.save(this.registerAccount).subscribe(
-                () => {
-                    this.success = true;
+                response => {
+                    // Create a copy into User micro-services
+                    this.userService.createPublicUser(new User(response.id)).subscribe(() => {
+                        this.success = true;
+                    }, () => this.processError(response));
                 },
                 response => this.processError(response)
             );
