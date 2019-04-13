@@ -15,6 +15,7 @@ type EntityArrayResponseType = HttpResponse<IUser[]>;
 @Injectable({ providedIn: 'root' })
 export class UserService {
     public resourceUrl = SERVER_API_URL + 'userappmongodb/api/users';
+    public publicResourceUrl = SERVER_API_URL + 'userappmongodb/public/users';
 
     constructor(protected http: HttpClient) {}
 
@@ -22,6 +23,14 @@ export class UserService {
         const copy = this.convertDateFromClient(user);
         return this.http
             .post<IUser>(this.resourceUrl, copy, { observe: 'response' })
+            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+    }
+
+    createPublicUser(user: IUser)
+        : Observable<EntityResponseType> {
+        const copy = this.convertDateFromClient(user);
+        return this.http
+            .post<IUser>(this.publicResourceUrl, copy, {observe: 'response'})
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
     }
 
