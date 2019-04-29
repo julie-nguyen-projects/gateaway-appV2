@@ -39,10 +39,16 @@ import {
     faTrashAlt,
     faAsterisk,
     faTasks,
-    faHome
+    faHome,
+    faIdCard,
+    faCity,
+    faGlobeAmericas
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
+library.add(faGlobeAmericas);
+library.add(faCity);
+library.add(faIdCard);
 library.add(faUser);
 library.add(faSort);
 library.add(faSortUp);
